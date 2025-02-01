@@ -21,10 +21,6 @@ public class Node {
         return student;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
     public Node getNext() {
         return next;
     }

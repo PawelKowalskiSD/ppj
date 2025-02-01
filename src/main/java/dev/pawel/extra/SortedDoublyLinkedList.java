@@ -178,11 +178,12 @@ public class SortedDoublyLinkedList {
             return stringBuilder.append("[]").toString();
         }
         Node temp = head;
-        stringBuilder.append(temp);
+        stringBuilder.append("[").append(temp);
         while (temp.getNext() != null) {
             temp = temp.getNext();
-            stringBuilder.append("\n").append(temp.toString());
+            stringBuilder.append(", ").append(temp.toString());
         }
+        stringBuilder.append("]");
         return stringBuilder.toString();
     }
 }

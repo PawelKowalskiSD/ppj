@@ -2,6 +2,8 @@ package dev.pawel.extra;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 class SortedDoublyLinkedListTest {
 
@@ -362,5 +364,29 @@ class SortedDoublyLinkedListTest {
         sortedDoublyLinkedList.supplyTo(indexFinder);
         //Then
         assertEquals(rafalNawrocki.s(), indexFinder.getTrackedStudent().s());
+    }
+
+    @Test
+    void shouldDisplayArrayList_WhenUseSupplyTo() {
+        //Given
+        SortedDoublyLinkedList sortedDoublyLinkedList = new SortedDoublyLinkedList();
+        ArrayBuilder arrayBuilder = new ArrayBuilder();
+        Student pawelKowalski = new Student("Pawel", "Kowalski", 2342);
+        Student damianNowak = new Student("Damian", "Nowak", 6142);
+        Student romanSmith = new Student("Roman", "Smith", 3312);
+        Student robertKowalczyk = new Student("Robert", "Kowalczyk", 6742);
+        Student rafalNawrocki = new Student("Rafal", "Nawrocki", 2543);
+        Student patrykSmith = new Student("Patryk", "Smith", 1411);
+        sortedDoublyLinkedList.add(damianNowak);
+        sortedDoublyLinkedList.add(pawelKowalski);
+        sortedDoublyLinkedList.add(rafalNawrocki);
+        sortedDoublyLinkedList.add(robertKowalczyk);
+        sortedDoublyLinkedList.add(patrykSmith);
+        sortedDoublyLinkedList.add(romanSmith);
+        //When
+        sortedDoublyLinkedList.supplyTo(arrayBuilder);
+        String result = Arrays.toString(arrayBuilder.getStudents());
+        //Then
+        assertEquals(sortedDoublyLinkedList.toString(), result);
     }
 }
